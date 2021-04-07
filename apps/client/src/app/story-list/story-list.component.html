@@ -1,0 +1,38 @@
+<div class="loader" *ngIf="!(storyItems$ | async)">
+    <mat-spinner></mat-spinner>
+</div>
+<mat-list>
+	<mat-list-item class="mat-elevation-z2" *ngFor="let item of storyItems$ | async">
+		<mat-card *ngIf="item" class="example-card">
+			<mat-card-header>
+				<mat-card-title class="story-title">
+					<a class="story-link" href="{{getUrl(item)}}" target="_balnk">
+					<span class="story-title">
+						{{item.title}}
+					</span></a>
+				</mat-card-title>
+				<div class="flex-row story-metadata">
+					<mat-icon aria-hidden="false" aria-label="user">person</mat-icon>
+					<span class="story-user">{{item.by}}</span>
+					<mat-icon aria-hidden="false" aria-label="favorite">favorite</mat-icon>
+					<span class="story-user">{{item.score}}</span>
+					<mat-icon aria-hidden="false" aria-label="comment">comment</mat-icon>
+					<span class="story-user">{{getComments(item)}}</span>
+					<mat-icon aria-hidden="false" aria-label="time">watch_later</mat-icon>
+					<span class="story-user">{{getTime(item.time)}}</span>
+				</div>
+				<div class="flex-row">
+				</div>
+			</mat-card-header>
+		</mat-card>
+		<mat-card *ngIf="!item" class="example-card">
+			<span class="story-title">
+				Oops! something went wrong.. Failed to load the story.
+			</span>
+			<br/>
+			<span class="story-title">
+				Please try again later..
+			</span>
+		</mat-card>
+	</mat-list-item>
+</mat-list>

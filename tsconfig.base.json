@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@env/*": ["apps/client/src/environments/*"],
+      "@hn/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@hn/core-data": ["libs/core-data/src/index.ts"],
+      "@hn/core-state": ["libs/core-state/src/index.ts"],
+      "@hn/material": ["libs/material/src/index.ts"],
+      "@hn/testing": ["libs/testing/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

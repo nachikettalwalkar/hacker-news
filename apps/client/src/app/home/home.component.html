@@ -1,0 +1,13 @@
+<div class="flex-row header-wrapper">
+    <span class="page-title">{{currentPageName}}</span>
+    <mat-paginator 
+        [length]="stories?.length"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="handlePage($event)">
+    </mat-paginator>  
+</div>  
+<hn-story-list 
+	*ngIf="currentPageStories.length" 
+	[(currentPageStories)]="currentPageStories">
+</hn-story-list>
